@@ -10,13 +10,13 @@ app.use(cors());
 app.post("/events", (req, res) => {
   const event = req.body;
 
-  axios.post("http://localhost:3004/events", event);
-  axios.post("http://localhost:3002/events", event);
-  axios.post("http://localhost:3001/events", event);
+  axios.post("http://event-bus-srv:4005/events", event);
+  // axios.post("http://localhost:3002/events", event);
+  // axios.post("http://localhost:3001/events", event);
 
   res.send({ status: "OKE" });
 });
 
-app.listen(3004, () => {
-  console.log("Listening on port 3004");
+app.listen(4005, () => {
+  console.log("Listening on port 4005");
 });
